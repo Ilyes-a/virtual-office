@@ -35,7 +35,7 @@ git clone https://github.com/votre-utilisateur/virtual-office.git
 cd virtual-office
 ```
 
-## Create and activate a virtual environment:
+## Créer et activer un environnement:
 
 Linux/Mac:
 ```
@@ -52,12 +52,12 @@ python -m venv venv
 venv\Scripts\activate
 ```
 
-## Install dependencies:
+## Installer les dépendances:
 
 ```
 pip install django cohere requests Pillow Plotly
 ```
-Apply migrations:
+Appliquer les migrations:
 
 ```
 python manage.py migrate
@@ -66,7 +66,7 @@ python manage.py createdemo
 ```
 
 
-# Start the server:
+# Démarrer le serv:
 
 ```
 python manage.py runserver
