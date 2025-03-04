@@ -1,6 +1,6 @@
 # Virtual Office
 Ce projet est un virtual desktop qui permet de se connecter et d'accéder à son environnement avec plusieurs applications.
-
+Projet réalisé en collaboration avec : Ilyes ACHAQ, Bastien ROBERT, Antoine MOUTIER
 ## Design & Interface
 L'interface utilisateur s'inspire du style **glassmorphism** de macOS, avec des éléments semi-transparents, des arrière-plans floutés et des bordures subtiles. 
 
