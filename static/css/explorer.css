@@ -1,0 +1,312 @@
+#explorer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  backdrop-filter: blur(4px);
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+#explorer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background: rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(2px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-sizing: border-box;
+}
+
+#drive-selector {
+  display: flex;
+  gap: 12px;
+}
+#drive-selector .drive-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background 0.3s, transform 0.3s;
+}
+#drive-selector .drive-link:hover,
+#drive-selector .drive-link.active {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+#explorer-actions {
+  display: flex;
+  gap: 12px;
+}
+#explorer-actions .action-btn,
+#explorer-actions button#toggle-view,
+#explorer-actions button#new-folder-btn,
+#explorer-actions button#new-file-btn {
+  background: rgba(0, 0, 0, 0.18);
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+  color: #fff;
+  font-size: 16px;
+}
+#explorer-actions .action-btn:hover,
+#explorer-actions button#toggle-view:hover,
+#explorer-actions button#new-folder-btn:hover,
+#explorer-actions button#new-file-btn:hover {
+  background: rgba(0, 0, 0, 0.28);
+  transform: translateY(-1px);
+}
+
+#explorer-breadcrumbs {
+  margin: 12px 24px 0 24px;
+  font-size: 14px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+#explorer-breadcrumbs a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+#explorer-breadcrumbs a:hover {
+  color: #00ccff;
+}
+.breadcrumb-sep {
+  margin: 0 4px;
+}
+
+#explorer-body {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+#explorer-sidebar {
+  width: 260px;
+  background: rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(2px);
+  padding: 16px;
+  box-sizing: border-box;
+  height: 100%;
+  overflow-y: auto;
+  border-right: 1px solid rgba(255,255,255,0.2);
+}
+#explorer-sidebar h3 {
+  margin: 0 0 16px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+}
+#explorer-sidebar a.btn-back {
+  display: block;
+  margin-bottom: 16px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+}
+#explorer-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#explorer-sidebar ul li {
+  margin-bottom: 12px;
+}
+#explorer-sidebar ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+#explorer-sidebar ul li a:hover {
+  color: #00ccff;
+}
+
+#explorer-main {
+  flex: 1;
+  padding: 16px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  background: transparent;
+}
+
+.explorer-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.explorer-item {
+  width: 130px;
+  text-align: center;
+  cursor: pointer;
+  padding: 12px;
+  border-radius: 8px;
+  background: transparent;
+  border: 1px solid transparent;
+  transition: background 0.3s, transform 0.3s, border-color 0.3s;
+}
+.explorer-item:hover {
+  background: rgba(255,255,255,0.03);
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,0.25);
+}
+.explorer-icon {
+  font-size: 48px;
+  margin-bottom: 8px;
+  color: #fff;
+}
+.folder-item .explorer-icon {
+  color: #ffdd57;
+}
+.item-title {
+  font-size: 14px;
+  color: #fff;
+  margin-top: 4px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.item-meta {
+  font-size: 10px;
+  color: #ccc;
+}
+
+.list-view .explorer-content {
+  flex-direction: column;
+  gap: 8px;
+}
+.list-view .explorer-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+}
+.list-view .explorer-icon {
+  font-size: 32px;
+  margin-right: 12px;
+}
+
+.explorer-form {
+  width: 100%;
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 16px;
+  background: transparent;
+  backdrop-filter: blur(2px);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 8px;
+  color: #fff;
+  box-sizing: border-box;
+}
+.explorer-form h2 {
+  margin-top: 0;
+  text-align: center;
+}
+.explorer-form .form-group {
+  margin-bottom: 12px;
+}
+.explorer-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #fff;
+}
+.explorer-form input[type="text"],
+.explorer-form input[type="file"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 4px;
+  background: transparent;
+  color: #fff;
+  box-sizing: border-box;
+}
+.explorer-form button {
+  display: block;
+  width: 100%;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+  color: #fff;
+  font-size: 16px;
+}
+.explorer-form button:hover {
+  background: rgba(255,255,255,0.05);
+}
+
+a.btn-back {
+  display: block;
+  margin-top: 10px;
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.inline-folder-input {
+  width: 90%;
+  padding: 6px 8px;
+  margin-top: 6px;
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 4px;
+  background: transparent;
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+  transition: border 0.3s;
+}
+.inline-folder-input:focus {
+  border: 1px solid #00ccff;
+}
+
+.inline-file-input {
+  width: 90%;
+  padding: 6px 8px;
+  margin-top: 6px;
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 4px;
+  background: transparent;
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+  transition: border 0.3s;
+}
+.inline-file-input:focus {
+  border: 1px solid #00ccff;
+}
+
+.explorer-item.selected {
+  outline: 2px solid #00ccff;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+.drag-over {
+  background-color: rgba(0, 150, 0, 0.2);
+  border: 2px dashed #009600;
+}

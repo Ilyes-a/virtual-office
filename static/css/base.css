@@ -1,0 +1,18 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  user-select: none;
+  background: transparent;
+}
+
+.vo-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: rgba(245, 245, 245, 0.05);
+  backdrop-filter: blur(10px);
+}

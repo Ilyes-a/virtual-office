@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Bureau - Virtual Office{% endblock %}
+{% block content %}
+<div id="desktop">
+  <div class="desktop-icons">
+    {% for app in apps %}
+    <div class="desktop-icon" data-app="{{ app.id }}">
+      <img src="{% static app.icon %}" alt="{{ app.name }}">
+      <span>{{ app.name }}</span>
+    </div>
+    {% endfor %}
+  </div>
+  <div id="windows-container"></div>
+  <div id="taskbar">
+    <div id="start-button">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+    <div id="taskbar-icons"></div>
+    <!-- L'icône Task Manager a été supprimée -->
+  </div>
+  <div id="start-menu" class="hidden">
+    <div class="start-menu-content">
+      <div class="start-menu-header">
+        <div class="account-info">
+          <i class="fa-solid fa-user"></i> <a href="/accounts/profile/">Mon Compte</a>
+        </div>
+        <div class="logout">
+          <a href="/accounts/logout/"><i class="fa-solid fa-right-from-bracket"></i> Déconnexion</a>
+        </div>
+      </div>
+      <div class="start-menu-search">
+        <input type="text" id="start-search" placeholder="Rechercher des applications...">
+      </div>
+      <div class="start-menu-apps">
+        {% for app in apps %}
+        <div class="start-app" data-app="{{ app.id }}">
+          <img src="{% static app.icon %}" alt="{{ app.name }}">
+          <span>{{ app.name }}</span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  window.appsConfig = {
+    {% for app in apps %}
+    "{{ app.id }}": {
+      id: "{{ app.id }}",
+      name: "{{ app.name }}",
+      icon: "{% static app.icon %}",
+      url: "{{ app.url }}"
+    }{% if not forloop.last %},{% endif %}
+    {% endfor %}
+  };
+  </script>
+  
+
+{% endblock %}

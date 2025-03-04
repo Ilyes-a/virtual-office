@@ -1,0 +1,185 @@
+.app-window {
+  position: absolute;
+  width: 600px;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border: none; 
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  pointer-events: auto;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  animation: windowOpen 0.3s ease-out;
+}
+
+@keyframes windowOpen {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes windowClose {
+  from { opacity: 1; transform: scale(1); }
+  to   { opacity: 0; transform: scale(0.9); }
+}
+
+.app-window.closing {
+  animation: windowClose 0.3s ease-out;
+}
+
+.minimize-animation {
+  animation: minimizeWindow 0.3s ease-out forwards;
+}
+@keyframes minimizeWindow {
+  from { opacity: 1; transform: scale(1); }
+  to   { opacity: 0; transform: scale(0.5); }
+}
+
+.app-window.maximized {
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.animating {
+  transition: top 0.3s ease, left 0.3s ease, width 0.3s ease, height 0.3s ease;
+}
+
+.window-header {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border: none;
+  border-radius: 12px 12px 0 0;
+  padding: 6px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: move;
+  height: 35px;
+  flex-shrink: 0;
+}
+
+.window-title {
+  flex: 1;
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
+  color: #fff;
+}
+
+.window-controls {
+  display: flex;
+  gap: 6px;
+}
+
+.window-controls .window-btn {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  margin-left: 6px;
+  transition: background 0.2s ease;
+}
+
+.window-controls .window-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.window-btn.close {
+  background: #ff5f57;
+}
+
+.window-btn.minimize {
+  background: #ffbd2e;
+}
+
+.window-btn.maximize {
+  background: #28c840;
+}
+
+.window-content {
+  flex: 1;
+  width: 100%;
+  height: calc(100% - 35px);
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  background: transparent;
+}
+
+.app-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.resizer {
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  position: absolute;
+  z-index: 10;
+}
+
+.resizer.top-left {
+  top: -10px;
+  left: -10px;
+  cursor: nwse-resize;
+}
+
+.resizer.top-right {
+  top: -10px;
+  right: -10px;
+  cursor: nesw-resize;
+}
+
+.resizer.bottom-right {
+  bottom: -10px;
+  right: -10px;
+  cursor: nwse-resize;
+}
+
+.resizer.bottom-left {
+  bottom: -10px;
+  left: -10px;
+  cursor: nesw-resize;
+}
+
+.resizer.top {
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: ns-resize;
+}
+
+.resizer.right {
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: ew-resize;
+}
+
+.resizer.bottom {
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: ns-resize;
+}
+
+.resizer.left {
+  left: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: ew-resize;
+}
